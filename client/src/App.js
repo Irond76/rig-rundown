@@ -1,6 +1,7 @@
-import './App.css';
+import './styles/App.css';
 import Title from './components/Title';
 import GuitarsData from './components/GuitarsData';
+import AddGuitar from './components/AddGuitar';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Title />
       <GuitarsData />
+      <AddGuitar />
     </div>
   );
 }
