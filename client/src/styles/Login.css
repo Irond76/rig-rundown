@@ -18,6 +18,11 @@
     
 }
 
+label {
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
 .input {
     width: 30%;
     outline: none;
