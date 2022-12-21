@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 .login-form {
+    border: 1px solid black;
     display: grid;
     padding: 1rem;
     background-color: #E30074;
@@ -11,9 +12,10 @@
     border-radius: 0.5rem;
     color: white;
     max-width: 30vw;
-    margin: 2rem auto 0 auto;
+    margin: 8rem auto 0 auto;
     grid-template-columns: 1fr;
     transition: all 0.3s ease-in-out;
+    
 }
 
 .input {
