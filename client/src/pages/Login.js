@@ -3,11 +3,11 @@ import '../styles/Login.css';
 import LoginButton from '../components/LoginButton';
 
 const Login = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   
   return (
     <>
-    {userLoggedIn ?
+    {isUserLoggedIn ?
     <form action="/login" method="POST" className='login-form'>
       <label htmlFor="userName">User Name: </label>
       <input type="text" name="userName" id='userName'className='input'/>
@@ -16,7 +16,7 @@ const Login = () => {
       <button type='button'className='submit-btn'>Submit</button>
     </form>
     : 
-    <LoginButton onClick={() => setUserLoggedIn(!userLoggedIn) }/>
+    <LoginButton onClick={() => setIsUserLoggedIn(!isUserLoggedIn) }/>
   }
     </>
   )
