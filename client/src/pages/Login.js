@@ -4,7 +4,13 @@ import LoginButton from '../components/LoginButton';
 import Home from './Home';
 const Login = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState({
+    userName: '',
+    password: ''
+  });
+
+const {userName, password} = loggedInUser;
+
   return (
     <>
     {isUserLoggedIn ?
@@ -13,7 +19,7 @@ const Login = () => {
       <input type="text" name="userName" id='userName'className='input' required/>
       <label htmlFor="userPassword">Password: </label>
       <input type="password" name='userPassword' id='userPassword'className='input' required/>
-      <button type='button'className='submit-btn'>Submit</button>
+      <button type='submit'className='submit-btn'>Submit</button>
     </form>
     : 
     <LoginButton onClick={() => setIsUserLoggedIn(!isUserLoggedIn) }/>
