@@ -13,12 +13,13 @@ const {userName, userPassword} = loggedInUser;
 const onChange = (e) => {
   e.preventDefault();
   setLoggedInUser({...loggedInUser, [e.target.name]: e.target.value})
-}
+};
 
   return (
     <>
     {isUserLoggedIn ?
-    <form action="/login" method="POST" className='login-form' >
+    <form action="/login" method="POST" className='login-form'onSubmit={() => setLoggedInUser({ userName: '',
+    userPassword: ''})} >
       <label htmlFor="userName">User Name: </label>
       <input 
       type="text" 
