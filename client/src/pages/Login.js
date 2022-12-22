@@ -8,6 +8,10 @@ const Login = () => {
     userPassword: ''
   });
 
+const handleClick = () => {
+  console.log('hello from submit button');
+};
+
 const {userName, userPassword} = loggedInUser;
 const onChange = (e) => {
   e.preventDefault();
@@ -18,7 +22,7 @@ const onChange = (e) => {
   return (
     <>
     {isUserLoggedIn ?
-    <form action="/login" method="POST" className='login-form' onChange={onChange} >
+    <form action="/login" method="POST" className='login-form'  >
       <label htmlFor="userName">User Name: </label>
       <input 
       type="text" 
@@ -27,6 +31,7 @@ const onChange = (e) => {
       id='userName'
       className='input' 
       required 
+      onChange={onChange}
       />
       <label htmlFor="userPassword">Password: </label>
       <input 
@@ -34,11 +39,16 @@ const onChange = (e) => {
       name='userPassword' 
       value={userPassword} 
       id='userPassword'className='input' 
-      required />
-      <button type='submit'className='submit-btn' >Submit</button>
+      required 
+      onChange={onChange}
+      />
+      <button 
+      type='submit'
+      className='submit-btn' 
+      onClick={handleClick}>Submit</button>
     </form>
     : 
-    <LoginButton onClick={() => setIsUserLoggedIn(!isUserLoggedIn)}/>
+    <LoginButton onClick={() => setIsUserLoggedIn(!isUserLoggedIn)} />
   } 
     </>
   )
