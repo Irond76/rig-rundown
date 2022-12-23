@@ -8,18 +8,24 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 mongoose.set('strictQuery', false);
+const User = require('./models/User');
 
 
-app.post('/login', (req, res) => {
-    const data = req.body;
-    if (data.userName === 'Dale'){
-        console.log(data);
 
-    }else {
-        console.log('user not found')
+app.post('/login', async (req, res) => {
+    const {userName, userPassword} = req.body;
+    const officialUserName = await User.findOne({userName});
+    const officialUserPassword = await User.findOne({userPassword});
+    if (!officialUserName) {
+        res.status(404).send({message: `Username: ${userName} Not Found`});
     }
+    else if (!officialUserPassword) {
+        res.status(404).send({message: `Password Incorrect`});
+    }
+    else if (officialUserName && officialUserPassword) {
+        res.status(200).send({message: 'Access Granted'});
+    };
 });
-
 
 const startUp = async () => {
     try {
