@@ -6,7 +6,7 @@ const Login = async (req, res) => {
     const officialUserName = await User.findOne({userName});
     const officialUserPassword = await User.findOne({userPassword});
     if (!officialUserName) {
-        res.status(404).send({message: `Username: ${userName} Not Found`});
+        res.status(404).send({message: `Username Not Found`});
     }
     else if (!officialUserPassword) {
         res.status(404).send({message: `Password Incorrect`});
