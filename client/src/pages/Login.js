@@ -23,7 +23,7 @@ const handleSubmit = async  (e) => {
     console.log(data);
     console.log(res.status);
   } catch (error) {
-    console.log(error.res)
+    console.log(error.response.data.message)
   }
   
 }
