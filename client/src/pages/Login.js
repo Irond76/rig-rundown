@@ -1,28 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import '../styles/Login.css';
-import LoginButton from '../components/LoginButton';
+import Home from './Home';
+
+
+
 const Login = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState({
-    userName: '',
-    userPassword: ''
-  });
+  const [userName, setUserName] = useState('');
+  const [userPassword, setUserPassword] = useState('');
 
-const handleClick = () => {
-  console.log('hello from submit button');
-};
+  
 
-const {userName, userPassword} = loggedInUser;
-const onChange = (e) => {
+
+const handleSubmit = async  (e) => {
   e.preventDefault();
-  setLoggedInUser({...loggedInUser, [e.target.name]: e.target.value});
-
-};
+  try {
+    const res = await axios.post('http://localhost:5000/login', {userName: userName, userPassword: userPassword});
+    const data = await res.data;
+    console.log(data)
+  } catch (error) {
+    console.log(error.res)
+  }
+  
+}
 
   return (
     <>
-    {isUserLoggedIn ?
-    <form action="/login" method="POST" className='login-form'  >
+    <form  method="POST" className='login-form'>
       <label htmlFor="userName">User Name: </label>
       <input 
       type="text" 
@@ -31,7 +35,7 @@ const onChange = (e) => {
       id='userName'
       className='input' 
       required 
-      onChange={onChange}
+      onChange={(e) => setUserName(e.target.value)}
       />
       <label htmlFor="userPassword">Password: </label>
       <input 
@@ -40,16 +44,13 @@ const onChange = (e) => {
       value={userPassword} 
       id='userPassword'className='input' 
       required 
-      onChange={onChange}
+      onChange={(e) => setUserPassword(e.target.value)}
       />
       <button 
       type='submit'
-      className='submit-btn' 
-      onClick={handleClick}>Submit</button>
-    </form>
-    : 
-    <LoginButton onClick={() => setIsUserLoggedIn(!isUserLoggedIn)} />
-  } 
+      className='submit-btn' onClick={handleSubmit}>Submit</button>
+    </form> 
+     
     </>
   )
 }

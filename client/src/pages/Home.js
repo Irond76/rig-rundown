@@ -1,8 +1,12 @@
 import React from 'react'
+import LoginButton from '../components/LoginButton';
 
 const Home = () => {
   return (
-    <div>Home Page</div>
+    <>
+    <h2>Your Catalogue Of Music Gear</h2>
+    <LoginButton />
+    </>
   )
 }
 

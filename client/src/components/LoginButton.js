@@ -1,8 +1,12 @@
 import React from 'react';
 import '../styles/LoginButton.css';
-const LoginButton = ({onClick}) => {
+import { Link } from 'react-router-dom';
+
+const LoginButton = () => {
   return (
-    <button className='login-btn' onClick={onClick}>Login</button>
+    <Link to="/login">
+      <button className='login-btn'>Login</button>
+    </Link>
   )
 }
 
