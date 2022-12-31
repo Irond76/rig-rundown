@@ -6,28 +6,13 @@ const DB = process.env.MONGO_DB_URI;
 const mongoose = require('mongoose');
 const port = process.env.PORT;
 mongoose.set('strictQuery', false);
-const User = require('./models/User');
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+const loginUserRoute = require('./Routes/LoginUserRoute');
 
+app.use('/login', loginUserRoute);
 
-app.post('/login', async (req, res) => {
-    const {userName, userPassword} = req.body;
-    const officialUserName = await User.findOne({userName});
-    const officialUserPassword = await User.findOne({userPassword});
-    if (!officialUserName) {
-        res.status(404).send({message: `Username: ${userName} Not Found`});
-    }
-    else if (!officialUserPassword) {
-        res.status(404).send({message: `Password Incorrect`});
-    }
-    else if (officialUserName && officialUserPassword) {
-        res.status(200).send(officialUserName)
-    };
-
-});
 
 const startUp = async () => {
     try {
@@ -40,3 +25,6 @@ const startUp = async () => {
     }
 }
 startUp();
+
+
+

@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
-import Home from './Home';
+import { Link } from 'react-router-dom';
+import User from '../pages/User';
 
 
 
@@ -17,7 +18,10 @@ const handleSubmit = async  (e) => {
   try {
     const res = await axios.post('http://localhost:5000/login', {userName: userName, userPassword: userPassword});
     const data = await res.data;
-    console.log(data)
+    setUserName(userName);
+    setUserPassword(userPassword)
+    console.log(data);
+    console.log(res.status);
   } catch (error) {
     console.log(error.res)
   }
@@ -50,7 +54,6 @@ const handleSubmit = async  (e) => {
       type='submit'
       className='submit-btn' onClick={handleSubmit}>Submit</button>
     </form> 
-     
     </>
   )
 }
