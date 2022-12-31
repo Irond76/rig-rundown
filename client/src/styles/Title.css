@@ -8,8 +8,9 @@
     text-shadow: 3px 1px 5px rgba(227, 0, 116, 0.2);
 }
 .title-subheader{
-    letter-spacing: .3rem;
-    word-spacing: 1rem;
+    letter-spacing: .2rem;
+    font-size: 1rem;
+    word-spacing: .5rem;
     font-weight: bold;
     margin-top: -1rem;
 }
@@ -27,5 +28,11 @@ hr {
     .main-title {
         letter-spacing: .3em;
         margin: 1em auto;
+    }
+}
+@media screen and (min-width: 1080px) {
+    .title-subheader{
+        letter-spacing: .5rem;
+        font-size: 2rem;
     }
 }
