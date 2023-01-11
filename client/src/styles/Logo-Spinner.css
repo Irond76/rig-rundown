@@ -1,0 +1,16 @@
+.logo-spin{
+  width: 50px;
+  border: 4px solid #E30074;
+  border-radius: 50%;
+  box-shadow: 0px 0px 25px 0px rgba(227,0,116);
+  animation: spin 2.5s infinite linear;
+}
+
+@keyframes spin {
+    from {
+      transform: rotate();
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

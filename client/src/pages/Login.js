@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
 import { Navigate } from 'react-router-dom';
-import User from '../pages/User';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 
@@ -11,18 +11,21 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(false);
+  const [isLoading, setIsLoading] = useState(null);
 
 
 const handleSubmit = async  (e) => {
   e.preventDefault();
   try {
+    setIsLoading(true);
     const res = await axios.post('http://localhost:5000/login', {userName: userName, userPassword: userPassword});
     const data = await res.data;
     setUserName(userName);
-    setUserPassword(userPassword)
-    setLoggedInUser(true)
+    setUserPassword(userPassword);
+    setLoggedInUser(true);
     console.log(data);
     console.log(res.status);
+    setIsLoading(false);
   } catch (error) {
     setErrorMessage(error.response.data.message);
     setLoggedInUser(false)
@@ -30,10 +33,17 @@ const handleSubmit = async  (e) => {
   
 }
 
+if (isLoading) {
+  return (
+    <div>
+      <LoadingSpinner />
+    </div>
+  )
+}
+else if (!loggedInUser && !isLoading){
   return (
     <>
     <h1>{errorMessage}</h1>
-    {!loggedInUser ?
     <form  method="POST" className='login-form'>
       <label htmlFor="userName">User Name: </label>
       <input 
@@ -57,10 +67,16 @@ const handleSubmit = async  (e) => {
       <button 
       type='submit'
       className='submit-btn' onClick={handleSubmit}>Submit</button>
-    </form> : <Navigate replace to='/user'/>
-}
-    </>
+    </form>  
+</>
   )
+
+}
+else if (loggedInUser && !isLoading){
+  return(
+    <Navigate replace to='/user'/> 
+  )
+}
 }
 
 export default Login;
