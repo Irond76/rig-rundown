@@ -23,8 +23,6 @@ const handleSubmit = async  (e) => {
     setUserName(userName);
     setUserPassword(userPassword);
     setLoggedInUser(true);
-    console.log(data);
-    console.log(res.status);
     setIsLoading(false);
   } catch (error) {
     setErrorMessage(error.response.data.message);
