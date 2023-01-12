@@ -3,9 +3,14 @@
 .add-item-button {
     background-color: #E30074;
     color: #FAFAFA;
-    width: 5vw;
+    width: 6vw;
     padding: .5em;
     border-radius: 1rem;
     cursor: pointer;
     border-style: none;
+    letter-spacing: .5em;
+    font-weight: bold;
+}
+p {
+    margin: 0 0 0 8px
 }
