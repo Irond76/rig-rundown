@@ -1,9 +1,10 @@
-
+import AddItemButton from "../components/AddItemButton"
 
 
 const User = () => {
   return (
     <div>
+      <AddItemButton />
       <br />
       <br />
       <h1>WELCOME LOGGED IN USER </h1>

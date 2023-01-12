@@ -1,0 +1,11 @@
+
+
+.add-item-button {
+    background-color: #E30074;
+    color: #FAFAFA;
+    width: 5vw;
+    padding: .5em;
+    border-radius: 1rem;
+    cursor: pointer;
+    border-style: none;
+}
