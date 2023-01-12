@@ -29,6 +29,10 @@ hr {
         letter-spacing: .3em;
         margin: 1em auto;
     }
+    .title-subheader{
+        letter-spacing: 0.3;
+        font-size: 0.8em;
+    }
 }
 @media screen and (min-width: 1080px) {
     .title-subheader{
