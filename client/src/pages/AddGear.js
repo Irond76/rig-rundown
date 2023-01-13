@@ -46,12 +46,13 @@ const AddGear = () => {
         setImage( e.target.files[0]);
 
     }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
     }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(brand, model, color, serialNumber, year, type, image, details)
+    };
 
   return (
     <article className='form-container'>
