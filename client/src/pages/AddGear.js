@@ -44,14 +44,13 @@ const AddGear = () => {
     };
     const handleImageChange = (e) => {
         setImage( e.target.files[0]);
+
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
     };
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
-
     }
 
   return (
@@ -116,7 +115,7 @@ const AddGear = () => {
                 <textarea type="text" name='details' id='details' className="brand-input" value={details} onChange={handleDetailsChange} placeholder='Details' required/>
             </label>
             </div>
-            <button type='submit' className='add-gear-btn' onChange={handleSubmit}>Add Gear</button>
+            <button type='submit' className='add-gear-btn' onClick={handleSubmit}>Add Gear</button>
         </form>
     </article>
   )
