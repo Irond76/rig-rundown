@@ -58,37 +58,37 @@ const AddGear = () => {
             <div>
             <label htmlFor="brand" className='brand-label'>
                 Brand: 
-                <input type="text" name='brand' id='brand' className="brand-input" value={brand} onChange={handleBrandChange} placeholder='Fender etc...'/>
+                <input type="text" name='brand' id='brand' className="brand-input" value={brand} onChange={handleBrandChange} placeholder='Fender etc...' required/>
             </label>
             </div>
             <div>
             <label htmlFor="model" className='brand-label'>
                 Model: 
-                <input type="text" name='model' id='model' className="brand-input" value={model} onChange={handleModelChange} placeholder='Telecaster etc...' />
+                <input type="text" name='model' id='model' className="brand-input" value={model} onChange={handleModelChange} placeholder='Telecaster etc...' required/>
             </label>
             </div>
             <div>
             <label htmlFor="color" className='brand-label'>
                 Color: 
-                <input type="text" name='color' id='color' className="brand-input" value={color} onChange={handleColorChange} placeholder='red etc....' />
+                <input type="text" name='color' id='color' className="brand-input" value={color} onChange={handleColorChange} placeholder='red etc....' required/>
             </label>
             </div>
             <div className='serial-number-div'>
             <label htmlFor="serialNumber" className='brand-label'>
                 Serial: 
-                <input type="text" name='serialNumber' id='serialNumber' className="brand-input" value={serialNumber} onChange={handleSerialNumberChange} placeholder='123 etc...'/>
+                <input type="text" name='serialNumber' id='serialNumber' className="brand-input" value={serialNumber} onChange={handleSerialNumberChange} placeholder='123 etc...' required/>
             </label>
             </div>
             <div >
             <label htmlFor="year" className='brand-label'>
                 Year: 
-                <input type="text" name='year' id='year' className="brand-input" value={year} onChange={handleYearChange} placeholder='EX: 1980 or N/A'/>
+                <input type="text" name='year' id='year' className="brand-input" value={year} onChange={handleYearChange} placeholder='EX: 1980 or N/A' required/>
             </label>
             </div>
             <div className='select-div'>
             <label htmlFor="type" className='brand-label'>
                 Item Type: 
-                <select name="type" id="type" className="brand-input" value={type} onChange={handleTypeChange}>
+                <select name="type" id="type" className="brand-input" value={type} onChange={handleTypeChange} required>
                     <option value="Electric Guitar" className='value'>Electric Guitar</option>
                     <option value="Acoustic Guitar">Acoustic Guitar</option>
                     <option value="Bass Guitar">Bass Guitar</option>
@@ -103,15 +103,15 @@ const AddGear = () => {
             <div className='image-div'>
             <label htmlFor="image" className='brand-label'>
                 Image: 
-                {preview ?<img src={preview} alt="Image-Preview" className='img-preview'/> :   
-                <input type="file" multiple accept='image/*' name='image' id='image' className="image-select brand-input" value={image[0]} onChange={handleImageChange}/>}
+                {preview ?<img src={preview} alt="Image-Preview" className='img-preview' /> :   
+                <input type="file" multiple accept='image/*' name='image' id='image' className="image-select brand-input" value={image[0]} onChange={handleImageChange} required/>}
             </label>
             </div>
             </div>
             <div >
             <label htmlFor="details" className='brand-label'>
                 Details: 
-                <textarea type="text" name='details' id='details' className="brand-input" value={details} onChange={handleDetailsChange} placeholder='Details'/>
+                <textarea type="text" name='details' id='details' className="brand-input" value={details} onChange={handleDetailsChange} placeholder='Details' required/>
             </label>
             </div>
             <button type='submit' className='add-gear-btn' onChange={handleSubmit}>Add Gear</button>
