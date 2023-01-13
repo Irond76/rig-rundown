@@ -12,6 +12,7 @@ div {
 
 .form-container {
     margin: 0 auto;
+    background-color: rgba(227,0,116,0.1);
     border: 1px solid  #E30074;
     width: 80vw;
     border-radius: .5em;
