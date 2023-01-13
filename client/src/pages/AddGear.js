@@ -28,7 +28,7 @@ const AddGear = () => {
         setBrand(e.target.value);
     };
     const handleModelChange = (e) => {
-        setModel(e.target.type.value);
+        setModel(e.target.value);
     };
     const handleColorChange = (e) => {
         setColor(e.target.value);
@@ -46,6 +46,8 @@ const AddGear = () => {
         setImage( e.target.files[0]);
     }
     const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
     };
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
