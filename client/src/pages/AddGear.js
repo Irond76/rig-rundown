@@ -10,6 +10,7 @@ const AddGear = () => {
     const [color, setColor] = useState('');
     const [image, setImage] = useState('');
     const [preview, setPreview] = useState('');
+    const [details, setDetails] = useState('');
 
     useEffect(() => {
         if (image) {
@@ -46,6 +47,10 @@ const AddGear = () => {
     }
     const handleSubmit = (e) => {
     };
+    const handleDetailsChange =(e) => {
+        setDetails(e.target.value);
+
+    }
 
   return (
     <article className='form-container'>
@@ -102,6 +107,12 @@ const AddGear = () => {
                 <input type="file" multiple accept='image/*' name='image' id='image' className="image-select brand-input" value={image[0]} onChange={handleImageChange}/>}
             </label>
             </div>
+            </div>
+            <div >
+            <label htmlFor="details" className='brand-label'>
+                Details: 
+                <textarea type="text" name='details' id='details' className="brand-input" value={details} onChange={handleDetailsChange} placeholder='Details'/>
+            </label>
             </div>
             <button type='submit' className='add-gear-btn' onChange={handleSubmit}>Add Gear</button>
         </form>
