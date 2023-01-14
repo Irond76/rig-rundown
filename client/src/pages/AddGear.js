@@ -51,12 +51,24 @@ const AddGear = () => {
         setDetails(e.target.value);
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
+        const res = await axios.post('/add-gear', {
+            brand: brand,
+            model: model,
+            color: color,
+            serialNumber: serialNumber,
+            year: year,
+            type: type,
+            image: image,
+            details: details
+        });
+        const data = await res.data;
+        console.log(data)
     };
 
   return (
     <article className='form-container'>
-        <form className='add-gear-form' >
+        <form className='add-gear-form' action='/add-gear' method='post' >
             <div>
             <label htmlFor="brand" className='brand-label'>
                 Brand: 

@@ -6,7 +6,7 @@ const gearSchema = new mongoose.Schema({
     serialNumber: {type: String, required:true},
     year: {type: String, required:true},
     color: {type: String, required:true},
-    image: {type: Object, required:true},
+    image: {type: String, required:true},
     details: {type: String, required:true}
 }, {
     timestamps: true
@@ -14,4 +14,4 @@ const gearSchema = new mongoose.Schema({
 
 const Gear = mongoose.model("Gear", gearSchema);
 
-exports.Gear = Gear;
+module.exports = Gear;
