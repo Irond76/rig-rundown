@@ -1,5 +1,6 @@
 import '../styles/AddGear.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AddGear = () => {
     const [brand, setBrand] = useState('');
@@ -49,14 +50,13 @@ const AddGear = () => {
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(brand, model, color, serialNumber, year, type, image, details)
     };
 
   return (
     <article className='form-container'>
-        <form className='add-gear-form'>
+        <form className='add-gear-form' >
             <div>
             <label htmlFor="brand" className='brand-label'>
                 Brand: 

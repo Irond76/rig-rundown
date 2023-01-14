@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 const loginUserRoute = require('./Routes/LoginUserRoute');
+const addGearRoute = require('./Routes/AddGear');
 
 app.use('/login', loginUserRoute);
+app.use('/add-gear', addGearRoute);
 
 
 const startUp = async () => {

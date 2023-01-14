@@ -18,7 +18,7 @@ const handleSubmit = async  (e) => {
   e.preventDefault();
   try {
     setIsLoading(true);
-    const res = await axios.post('http://localhost:5000/login', {userName: userName, userPassword: userPassword});
+    const res = await axios.post('/login', {userName: userName, userPassword: userPassword});
     const data = await res.data;
     setUserName(userName);
     setUserPassword(userPassword);
