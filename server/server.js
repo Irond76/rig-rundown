@@ -19,9 +19,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(fileUpload());
 const loginUserRoute = require('./Routes/LoginUserRoute');
 const addGearRoute = require('./Routes/AddGear');
+const userRoute = require('./Routes/UserPage');
 
 app.use('/login', loginUserRoute);
 app.use('/add-gear', addGearRoute);
+app.use('/user', userRoute);
 
 
 const startUp = async () => {
