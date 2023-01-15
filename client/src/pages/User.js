@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import '../styles/User.css'
 import AddItemButton from "../components/AddItemButton";
 
 
@@ -21,20 +22,26 @@ const User = () => {
       <AddItemButton />
     </div>
     <div>
-      <article>
-        <section>
+      <article className="container">
+        <section className="container-center">
         {myGear.map((item) => {
           const {_id, brand,color,details,image,model,year,serialNumber} = item;
           return (
-            <ul>
+            <ul className="gear-list-items">
               <li key={_id}>
-                <h1>{brand}</h1>
-                <h2>{model}</h2>
-                <h2>{color}</h2>
-                <h3>{year}</h3>
-                <img src={image} alt={`${brand} ${model}`} />
-                <h3>Serial Nnmber: {serialNumber}</h3>
-                <p>{details}</p>
+                <div>
+                  <h1>{brand}</h1>               
+                  <h2>{model}</h2>
+                  <h2>{color}</h2>
+                  <h3>{year}</h3>
+                </div>
+                <div>
+                  <img src={image} alt={`${brand} ${model}`} className='gear-image'/>
+                </div>
+                <div>
+                  <h3>Serial Nnmber: {serialNumber}</h3>
+                  <p>{details}</p>
+                </div>
               </li>
             </ul>
           )
