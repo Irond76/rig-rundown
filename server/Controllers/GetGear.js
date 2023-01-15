@@ -2,8 +2,9 @@ const Gear = require('../models/AddGear');
 
 
 
-const GetGear = () => {
-    console.log('hi')
+const GetGear = async (req, res) => {
+    const gear = await Gear.find({});
+    res.send(gear);
 }
 
 
