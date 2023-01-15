@@ -6,7 +6,7 @@ const gearSchema = new mongoose.Schema({
     serialNumber: {type: String, required:true},
     year: {type: String, required:true},
     color: {type: String, required:true},
-    image: {type: String, required:true},
+    image: {type: String },
     details: {type: String, required:true}
 }, {
     timestamps: true

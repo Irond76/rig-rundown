@@ -12,14 +12,20 @@ const AddGear = () => {
     const [image, setImage] = useState('');
     const [preview, setPreview] = useState('');
     const [details, setDetails] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
 
-    useEffect(() => {
-        if (image) {
-            const reader = new FileReader();
+    const previewImage =  () => {
+        const reader =  new FileReader();
             reader.onloadend = () => {
                 setPreview(reader.result);
             }
             reader.readAsDataURL(image);
+    }
+
+    useEffect(() => {
+        if (image) {
+            previewImage();
+            // console.log(image);
         }else {
             setPreview('');
         };
@@ -41,34 +47,47 @@ const AddGear = () => {
         setYear(e.target.value)
     }
     const handleTypeChange = (e) => {
-        setType(...image, e.target.value);
+        setType( e.target.value);
     };
-    const handleImageChange = (e) => {
-        setImage( e.target.files[0]);
-
+    const handleImageChange =  (e) => {
+        setImage(e.target.files[0]);
     }
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
     }
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", preview);
+        formData.append("upload_preset", "rigrundown");
+        const uploadImage = await axios.post("https://api.cloudinary.com/v1_1/rush-media/image/upload", formData);
+        const uploadedImageData = await uploadImage.data;
+        const imageUrl = uploadedImageData.url;
+        setImageUrl(imageUrl);
         const res = await axios.post('/add-gear', {
-            brand: brand,
-            model: model,
-            color: color,
-            serialNumber: serialNumber,
-            year: year,
-            type: type,
-            image: image,
-            details: details
+            brand,
+            model,
+            color,
+            serialNumber,
+            year,
+            type,
+            image: imageUrl,
+            details
         });
         const data = await res.data;
-        console.log(data)
+        console.log(data);
+        setBrand('');
+        setModel('');
+        setColor('');
+        setSerialNumber('');
+        setYear('');
+        setImage('');
+        setImageUrl('');
+        setDetails('');
     };
-
   return (
     <article className='form-container'>
-        <form className='add-gear-form' action='/add-gear' method='post' >
+        <form className='add-gear-form' action='/add-gear' method='post'encType= "multipart/form-data" >
             <div>
             <label htmlFor="brand" className='brand-label'>
                 Brand: 
@@ -118,7 +137,7 @@ const AddGear = () => {
             <label htmlFor="image" className='brand-label'>
                 Image: 
                 {preview ?<img src={preview} alt="Image-Preview" className='img-preview' /> :   
-                <input type="file" multiple accept='image/*' name='image' id='image' className="image-select brand-input" value={image[0]} onChange={handleImageChange} required/>}
+                <input type="file"  accept='image/*' name='image' id='image' className="image-select brand-input" value={image[0]} onChange={handleImageChange} required/>}
             </label>
             </div>
             </div>
