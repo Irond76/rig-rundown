@@ -51,7 +51,7 @@ const AddGear = () => {
         setYear(e.target.value)
     }
     const handleTypeChange = (e) => {
-        setType( e.target.value);
+        setType(e.target.value);
     };
     const handleImageChange =  (e) => {
         setImage(e.target.files[0]);
@@ -126,7 +126,8 @@ const AddGear = () => {
               <div className='select-div'>
               <label htmlFor="type" className='brand-label'>
                   Item Type: 
-                  <select name="type" id="type" className="brand-input" value={type} onChange={handleTypeChange} required>
+                  <select  name="type" id="type" className="brand-input" value={type} onChange={handleTypeChange} required>
+                      <option value="" className=''>Select Gear</option>
                       <option value="Electric Guitar" className='value'>Electric Guitar</option>
                       <option value="Acoustic Guitar">Acoustic Guitar</option>
                       <option value="Bass Guitar">Bass Guitar</option>

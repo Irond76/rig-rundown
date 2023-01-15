@@ -20,6 +20,13 @@
     border-radius: 1rem;
 }
 
+.gear-main h1{   
+    font-size: 2rem;
+}
+.gear-main h2{
+    font-size: 2rem;
+}
+
 .gear-image {
     height: 200px;
     object-fit: cover;

@@ -25,13 +25,14 @@ const User = () => {
       <article className="container">
         <section className="container-center">
         {myGear.map((item) => {
-          const {_id, brand,color,details,image,model,year,serialNumber} = item;
+          const {_id, brand,color,type, details,image,model,year,serialNumber} = item;
           return (
             <ul className="gear-list-items">
               <li key={_id}>
-                <div>
+                <div className="gear-main">
                   <h1>{brand}</h1>               
                   <h2>{model}</h2>
+                  <h3>{type}</h3>
                   <h2>{color}</h2>
                   <h3>{year}</h3>
                 </div>
