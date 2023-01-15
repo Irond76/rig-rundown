@@ -27,7 +27,7 @@ const User = () => {
         {myGear.map((item) => {
           const {_id, brand,color,type, details,image,model,year,serialNumber} = item;
           return (
-            <ul className="gear-list-items">
+            <ul className="gear-list-items" key={_id}>
               <li key={_id}>
                 <div className="gear-main">
                   <h1>{brand}</h1>               

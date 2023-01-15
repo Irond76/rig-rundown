@@ -33,7 +33,7 @@ const AddGear = () => {
         }else {
             setPreview('');
         };
-    }, [image])
+    }, [image], [])
 
     const handleBrandChange = (e) => {
         setBrand(e.target.value);
@@ -59,6 +59,7 @@ const AddGear = () => {
     const handleDetailsChange =(e) => {
         setDetails(e.target.value);
     }
+    console.log(imageUrl)
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
