@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 const DarkModeButton = () => {
     const [darkMode, setDarkMode] = useState(false);
-    const [btnText, setBtnText] = useState('Dark Theme')
+    const [btnText, setBtnText] = useState('Light Theme')
 
     const handleClick = (e) => {
         setDarkMode(!darkMode);

@@ -33,7 +33,7 @@ const User = () => {
                 <h2>{color}</h2>
                 <h3>{year}</h3>
                 <img src={image} alt={`${brand} ${model}`} />
-                <h3>Serial NUmber: {serialNumber}</h3>
+                <h3>Serial Nnmber: {serialNumber}</h3>
                 <p>{details}</p>
               </li>
             </ul>
