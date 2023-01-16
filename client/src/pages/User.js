@@ -10,6 +10,8 @@ const User = () => {
   const [myGear, setMyGear] = useState([]);
   const [showSingleItem, setShowSingleItem] = useState(false);
   const [singleGearItem, setSingleGearItem] = useState([]);
+  const [edit, setEdit] = useState(false);
+  const [deleteGear, setDeleteGear] = useState(false);
 
   const getGearData = async () => {
     const res = await axios.get('/user');
@@ -27,9 +29,6 @@ const User = () => {
     const id = _id;
     const res = await axios.get(`/user/${id}`);
     const data = await res.data;
-    // console.log(`btn clicked id: ${_id}`);
-    // console.log(`this id is from the variable ${_id}`);
-    // console.log(data);
     setShowSingleItem(!showSingleItem);
     setSingleGearItem(data);
   }
