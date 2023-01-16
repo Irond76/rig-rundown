@@ -17,8 +17,10 @@ const User = () => {
     getGearData();
   }, [])
 
-  const handleClick = (_id) => {
+  const handleDetailsClick = (_id) => {
+    const id = _id;
     console.log(`btn clicked id: ${_id}`)
+    console.log(`this id is from the variable ${id}`)
     // const navigate = useNavigate();
     // return (
     //   navigate('/single-gear')
@@ -39,7 +41,7 @@ const User = () => {
             <ul className="gear-list-items" key={_id}>
               <li key={_id}>
                 <div className="gear-main">
-                  <h1 className="brand-text">Brand: <span className="sub-text-1">{brand}</span></h1>               
+                  <h1 className="brand-text">Brand: <span className="sub-text-1">{brand}</span></h1>
                   <h2 className="model-text">Model: <span className="sub-text-2">{model}</span></h2>
                   <hr />
                   <h3 className="gear-type-text">{type}</h3>
@@ -52,7 +54,7 @@ const User = () => {
                 <div>
                   <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
                   {/* <p className="details-text">Details: {details}</p> */}
-                  <button className="details-btn" onClick={() => handleClick(_id)}>See More Details...</button>
+                  <button className="details-btn" onClick={() => handleDetailsClick(_id)}>See More Details...</button>
                 </div>
               </li>
             </ul>
