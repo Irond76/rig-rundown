@@ -108,6 +108,17 @@ hr {
     font-weight: 400;
     font-size: .8rem;
     letter-spacing: 0.1rem;
+    word-wrap: break-word
+}
+
+.details-btn {
+    border: 1px solid #E30074;
+    margin-top: .2rem;
+    color: #E30074;
+    background-color: transparent;
+    padding: .2rem;
+    border-radius: .5em;
+    cursor: pointer;
 }
 
 

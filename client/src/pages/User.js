@@ -42,7 +42,8 @@ const User = () => {
                 </div>
                 <div>
                   <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
-                  <p className="details-text">Details: {details}</p>
+                  {/* <p className="details-text">Details: {details}</p> */}
+                  <button className="details-btn">See More Details...</button>
                 </div>
               </li>
             </ul>
