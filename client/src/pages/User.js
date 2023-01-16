@@ -6,9 +6,6 @@ import SingleGearItem from "./SingleGearItem";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-
-
-
 const User = () => {
   const [myGear, setMyGear] = useState([]);
   const [showSingleItem, setShowSingleItem] = useState(false);
@@ -36,8 +33,8 @@ const User = () => {
     setShowSingleItem(!showSingleItem);
     setSingleGearItem(data);
   }
-  return (
-    !showSingleItem ? 
+if (!showSingleItem) {
+  return (    
     <>
     <div>
       <AddItemButton />
@@ -77,9 +74,14 @@ const User = () => {
       </article>
     </div>
   </>
-  : <SingleGearItem state={singleGearItem}/>
+)
+  }else if (showSingleItem){
+    return (
+      <SingleGearItem state={singleGearItem}/>
+    )
+  }
+
  
 
-  )
 }
 export default User
