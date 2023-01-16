@@ -30,18 +30,19 @@ const User = () => {
             <ul className="gear-list-items" key={_id}>
               <li key={_id}>
                 <div className="gear-main">
-                  <h1>{brand}</h1>               
-                  <h2>{model}</h2>
-                  <h3>{type}</h3>
-                  <h2>{color}</h2>
-                  <h3>{year}</h3>
+                  <h1 className="brand-text">Brand: <span className="sub-text-1">{brand}</span></h1>               
+                  <h2 className="model-text">Model: <span className="sub-text-2">{model}</span></h2>
+                  <hr />
+                  <h3 className="gear-type-text">{type}</h3>
+                  <h3 className="color-text">Color: <span className="sub-text-3">{color}</span></h3>
+                  <h3 className="year-text">Year: {year}</h3>
                 </div>
                 <div>
                   <img  src={image} alt={`${brand} ${model}`} className='gear-image'/>
                 </div>
                 <div>
-                  <h3>Serial Nnmber: {serialNumber}</h3>
-                  <p>{details}</p>
+                  <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
+                  <p className="details-text">Details: {details}</p>
                 </div>
               </li>
             </ul>
