@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { Navigate} from "react-router-dom";
 import axios from 'axios';
 import '../styles/User.css'
 import AddItemButton from "../components/AddItemButton";
 import SingleGearItem from "./SingleGearItem";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+
+
 
 
 const User = () => {
@@ -61,6 +64,10 @@ const User = () => {
                 <div>
                   <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
                   <button className="details-btn" onClick={() => handleDetailsClick(_id)}>See More Details...</button>
+                </div>
+                <div className="icon-container" >
+                  <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+                  <FontAwesomeIcon icon={faTrashAlt} className="edit-icon" />
                 </div>
               </li>
             </ul>
