@@ -1,15 +1,21 @@
 
 
 .add-item-button {
-    background-color: #E30074;
-    color: #FAFAFA;
+    background-color: transparent;
+    border: 1px solid #E30074;
+    color: #E30074;
     padding: .5em;
     border-radius: 1rem;
     cursor: pointer;
-    border-style: none;
     letter-spacing: .5em;
     font-weight: bold;
+    transition: all .2s linear;
 }
+
+.add-item-button:hover {
+    scale: 1.1;
+}
+
 p {
     margin: 0 0 0 8px
 }
