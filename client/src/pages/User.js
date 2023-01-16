@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useNavigate } from "react";
 import axios from 'axios';
 import '../styles/User.css'
 import AddItemButton from "../components/AddItemButton";
@@ -16,6 +16,15 @@ const User = () => {
   useEffect(() => {
     getGearData();
   }, [])
+
+  const handleClick = (_id) => {
+    console.log(`btn clicked id: ${_id}`)
+    // const navigate = useNavigate();
+    // return (
+    //   navigate('/single-gear')
+    // )
+  }
+
   return (
     <>
     <div>
@@ -43,7 +52,7 @@ const User = () => {
                 <div>
                   <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
                   {/* <p className="details-text">Details: {details}</p> */}
-                  <button className="details-btn">See More Details...</button>
+                  <button className="details-btn" onClick={() => handleClick(_id)}>See More Details...</button>
                 </div>
               </li>
             </ul>
