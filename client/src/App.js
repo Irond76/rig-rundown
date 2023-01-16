@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import User from './pages/User';
 import AddGear from './pages/AddGear';
+import SingleGearItem from './pages/SingleGearItem';
 
 function App() {
   return (

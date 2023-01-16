@@ -1,11 +1,15 @@
-import { useEffect, useState, useNavigate } from "react";
+import { useEffect, useState } from "react";
+import { Navigate} from "react-router-dom";
 import axios from 'axios';
 import '../styles/User.css'
 import AddItemButton from "../components/AddItemButton";
+import SingleGearItem from "./SingleGearItem";
 
 
 const User = () => {
   const [myGear, setMyGear] = useState([]);
+  const [showSingleItem, setShowSingleItem] = useState(false);
+  const [singleGearItem, setSingleGearItem] = useState([]);
 
   const getGearData = async () => {
     const res = await axios.get('/user');
@@ -16,18 +20,21 @@ const User = () => {
   useEffect(() => {
     getGearData();
   }, [])
-
-  const handleDetailsClick = (_id) => {
+  
+ 
+  // Get Individual Item From DB
+  const handleDetailsClick = async (_id) => {
     const id = _id;
-    console.log(`btn clicked id: ${_id}`)
-    console.log(`this id is from the variable ${id}`)
-    // const navigate = useNavigate();
-    // return (
-    //   navigate('/single-gear')
-    // )
+    const res = await axios.get(`/user/${id}`);
+    const data = await res.data;
+    // console.log(`btn clicked id: ${_id}`);
+    // console.log(`this id is from the variable ${_id}`);
+    // console.log(data);
+    setShowSingleItem(!showSingleItem);
+    setSingleGearItem(data);
   }
-
   return (
+    !showSingleItem ? 
     <>
     <div>
       <AddItemButton />
@@ -53,7 +60,6 @@ const User = () => {
                 </div>
                 <div>
                   <h3 className="serial-number-text">Serial Nnmber: <span className="sub-text-4">{serialNumber}</span></h3>
-                  {/* <p className="details-text">Details: {details}</p> */}
                   <button className="details-btn" onClick={() => handleDetailsClick(_id)}>See More Details...</button>
                 </div>
               </li>
@@ -64,6 +70,9 @@ const User = () => {
       </article>
     </div>
   </>
+  : <SingleGearItem state={singleGearItem}/>
+ 
+
   )
 }
 export default User
