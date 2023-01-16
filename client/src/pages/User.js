@@ -37,7 +37,7 @@ const User = () => {
                   <h3>{year}</h3>
                 </div>
                 <div>
-                  <img src={image} alt={`${brand} ${model}`} className='gear-image'/>
+                  <img  src={image} alt={`${brand} ${model}`} className='gear-image'/>
                 </div>
                 <div>
                   <h3>Serial Nnmber: {serialNumber}</h3>
