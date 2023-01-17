@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const User = () => {
+  const [loading, setLoading] = useState(true);
   const [myGear, setMyGear] = useState([]);
   const [showSingleItem, setShowSingleItem] = useState(false);
   const [singleGearItem, setSingleGearItem] = useState([]);
@@ -16,6 +17,7 @@ const User = () => {
     const res = await axios.get('/user');
     const data = await res.data;
     setMyGear(data)
+    setLoading(false)
     console.log(data);
   };
 
@@ -23,13 +25,26 @@ const User = () => {
     const id = _id;
     const res = await axios.delete(`/user/${id}`);
     const data = await res.data;
-    setMyGear([...myGear, data]);
+    const newGear = myGear.filter((item) => item.id !== data._id);
+    setMyGear(newGear);
+    window.location.reload();
+    console.log(data)
 
   }
+  const editGearItem = async (_id) => {
+    setEdit(true)
+    const id = _id;
+    const res = await axios.patch(`/user/${id}`);
+    const data = await res.data;
+    setMyGear([...myGear]);
+    setEdit(false);
+  }
+
 
   useEffect(() => {
-    getGearData();
-  }, [myGear])
+     getGearData();
+ 
+  },[])
   
  
   // Get Individual Item From DB
@@ -70,7 +85,7 @@ if (!showSingleItem) {
                   <button className="details-btn" onClick={() => handleDetailsClick(_id)}>See More Details...</button>
                 </div>
                 <div className="icon-container" >
-                  <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+                  <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" onClick={() => editGearItem(_id) }/>
                   <FontAwesomeIcon icon={faTrashAlt} className="edit-icon" onClick={() => deleteGearItem(_id)} />
                 </div>
               </li>
@@ -86,7 +101,7 @@ if (!showSingleItem) {
     return (
       <SingleGearItem state={singleGearItem}/>
     )
-  }
+  } 
 
  
 
