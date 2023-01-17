@@ -11,7 +11,6 @@ const User = () => {
   const [showSingleItem, setShowSingleItem] = useState(false);
   const [singleGearItem, setSingleGearItem] = useState([]);
   const [edit, setEdit] = useState(false);
-  const [deleteGear, setDeleteGear] = useState(false);
 
   const getGearData = async () => {
     const res = await axios.get('/user');
@@ -19,9 +18,18 @@ const User = () => {
     setMyGear(data)
     console.log(data);
   };
+
+  const deleteGearItem = async (_id) => {
+    const id = _id;
+    const res = await axios.delete(`/user/${id}`);
+    const data = await res.data;
+    setMyGear([...myGear, data]);
+
+  }
+
   useEffect(() => {
     getGearData();
-  }, [])
+  }, [myGear])
   
  
   // Get Individual Item From DB
@@ -63,7 +71,7 @@ if (!showSingleItem) {
                 </div>
                 <div className="icon-container" >
                   <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-                  <FontAwesomeIcon icon={faTrashAlt} className="edit-icon" />
+                  <FontAwesomeIcon icon={faTrashAlt} className="edit-icon" onClick={() => deleteGearItem(_id)} />
                 </div>
               </li>
             </ul>
