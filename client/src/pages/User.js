@@ -3,16 +3,22 @@ import axios from 'axios';
 import '../styles/User.css'
 import AddItemButton from "../components/AddItemButton";
 import SingleGearItem from "./SingleGearItem";
+import EditGearDetail from "../components/EditGearDetail";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+
 
 const User = () => {
   const [loading, setLoading] = useState(true);
   const [myGear, setMyGear] = useState([]);
   const [showSingleItem, setShowSingleItem] = useState(false);
   const [singleGearItem, setSingleGearItem] = useState([]);
+  const [itemToEdit, setItemToEdit] = useState();
   const [edit, setEdit] = useState(false);
 
+// =======================================================================================================
+
+// ===================================================================================================================
   const getGearData = async () => {
     const res = await axios.get('/user');
     const data = await res.data;
@@ -32,18 +38,26 @@ const User = () => {
 
   }
   const editGearItem = async (_id) => {
-    setEdit(true)
     const id = _id;
-    const res = await axios.patch(`/user/${id}`);
+    const res = await axios.get(`/user/${id}`);
     const data = await res.data;
-    setMyGear([...myGear]);
-    setEdit(false);
+    setItemToEdit(data)
+    setEdit(!edit)
+
+
+    
+
+    // const res = await axios.patch(`/user/${id}`);
+    // const data = await res.data;
+    // setEditGearInfo(data)
+    // console.log(editGearInfo)
+    // setMyGear([...myGear]);
+    // setEdit(false);
   }
 
 
   useEffect(() => {
      getGearData();
- 
   },[])
   
  
@@ -55,7 +69,7 @@ const User = () => {
     setShowSingleItem(!showSingleItem);
     setSingleGearItem(data);
   }
-if (!showSingleItem) {
+if (!showSingleItem && !edit) {
   return (    
     <>
     <div>
@@ -101,9 +115,10 @@ if (!showSingleItem) {
     return (
       <SingleGearItem state={singleGearItem}/>
     )
-  } 
-
- 
-
+  } if (edit) {
+    return(
+      <EditGearDetail state={itemToEdit}/>
+    )
+  }
 }
-export default User
+export default User;
