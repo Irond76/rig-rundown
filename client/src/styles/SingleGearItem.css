@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&display=swap');
+
+.single-item-container {
+    /* border: 1px solid red; */
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr ;
+    justify-items: center;
+    margin: 0 auto;
+}
+img {
+    max-width: 60%;
+}
+.item-details-section {
+    /* border: 1px solid yellow; */
+    width: 100%;
+}
+.text {
+    /* border: 1px solid green; */
+    width: 80vw;
+}
+.main-text {
+    font-family: 'Moon Dance', cursive;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+}
+.back-btn {
+    cursor: pointer;
+    margin-top: .5rem;
+    font-size: 2rem;
+    padding: .3rem;
+    border-radius: .2rem;
+    background-color: transparent;
+    color: #E30074;
+    transition: all .2s linear;
+}
+.back-btn:hover {
+ scale: 1.2;
+}
+

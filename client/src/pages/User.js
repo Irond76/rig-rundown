@@ -28,7 +28,7 @@ const User = () => {
   };
 
   const deleteGearItem = async (_id) => {
-    const id = _id;
+    const id = _id;   
     const res = await axios.delete(`/user/${id}`);
     const data = await res.data;
     const newGear = myGear.filter((item) => item.id !== data._id);
@@ -63,7 +63,7 @@ const User = () => {
  
   // Get Individual Item From DB
   const handleDetailsClick = async (_id) => {
-    const id = _id;
+    const id = _id;   
     const res = await axios.get(`/user/${id}`);
     const data = await res.data;
     setShowSingleItem(!showSingleItem);
