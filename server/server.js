@@ -25,7 +25,6 @@ app.use('/login', loginUserRoute);
 app.use('/add-gear', addGearRoute);
 app.use('/user', userRoute);
 
-
 const startUp = async () => {
     try {
         mongoose.connect(DB);
