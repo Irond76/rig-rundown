@@ -4,10 +4,11 @@ import '../styles/AddItemButton.css';
 import { useNavigate } from 'react-router-dom';
 
 const AddItemButton = () => {
+    const url = 'https://rig-rundown.adaptable.app/';
     const navigate = useNavigate();
     const handleClick = (e) => {
         return (
-            navigate('/add-gear') 
+            navigate(url + '/add-gear') 
         )
     }
   return (

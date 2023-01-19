@@ -24,7 +24,7 @@ const AddGear = () => {
             reader.readAsDataURL(image);
     }
     const updatePage = () => {
-        navigate('/user');
+        navigate(url + '/user');
     }
 
     useEffect(() => {
