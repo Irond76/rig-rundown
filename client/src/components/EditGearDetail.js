@@ -65,7 +65,7 @@ const EditGearDetail = (props) => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
             const formData = new FormData();
             formData.append("file", image);
             formData.append("upload_preset", "rigrundown");
