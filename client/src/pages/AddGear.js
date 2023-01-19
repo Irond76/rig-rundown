@@ -15,6 +15,7 @@ const AddGear = () => {
     const [details, setDetails] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const navigate = useNavigate();
+    const url = 'https://rig-rundown.adaptable.app/';
     const previewImage =  () => {
         const reader =  new FileReader();
             reader.onloadend = () => {
@@ -65,11 +66,11 @@ const AddGear = () => {
         const formData = new FormData();
         formData.append("file", preview);
         formData.append("upload_preset", "rigrundown");
-        const uploadImage = await axios.post("https://api.cloudinary.com/v1_1/rush-media/image/upload", formData);
+        const uploadImage = await axios.post(url + "https://api.cloudinary.com/v1_1/rush-media/image/upload", formData);
         const uploadedImageData = await uploadImage.data;
         const imageUrl = uploadedImageData.url;
         setImageUrl(imageUrl);
-        const res = await axios.post('/add-gear', {
+        const res = await axios.post(url + '/add-gear', {
             brand,
             model,
             color,

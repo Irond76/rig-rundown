@@ -12,13 +12,13 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [isLoading, setIsLoading] = useState(null);
-
+const url = 'https://rig-rundown.adaptable.app/';
 
 const handleSubmit = async  (e) => {
   e.preventDefault();
   try {
     setIsLoading(true);
-    const res = await axios.post('/login', {userName: userName, userPassword: userPassword});
+    const res = await axios.post(url + '/login', {userName: userName, userPassword: userPassword});
     const data = await res.data;
     setUserName(userName);
     setUserPassword(userPassword);

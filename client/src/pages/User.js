@@ -15,12 +15,12 @@ const User = () => {
   const [singleGearItem, setSingleGearItem] = useState([]);
   const [itemToEdit, setItemToEdit] = useState();
   const [edit, setEdit] = useState(false);
-
+  const url = 'https://rig-rundown.adaptable.app/';
 // =======================================================================================================
 
 // ===================================================================================================================
   const getGearData = async () => {
-    const res = await axios.get('/user');
+    const res = await axios.get(url + '/user');
     const data = await res.data;
     setMyGear(data)
     setLoading(false)
@@ -29,7 +29,7 @@ const User = () => {
 
   const deleteGearItem = async (_id) => {
     const id = _id;   
-    const res = await axios.delete(`/user/${id}`);
+    const res = await axios.delete(url + `/user/${id}`);
     const data = await res.data;
     const newGear = myGear.filter((item) => item.id !== data._id);
     setMyGear(newGear);
@@ -39,7 +39,7 @@ const User = () => {
   }
   const editGearItem = async (_id) => {
     const id = _id;
-    const res = await axios.get(`/user/${id}`);
+    const res = await axios.get(url + `/user/${id}`);
     const data = await res.data;
     setItemToEdit(data)
     setEdit(!edit)
@@ -64,7 +64,7 @@ const User = () => {
   // Get Individual Item From DB
   const handleDetailsClick = async (_id) => {
     const id = _id;   
-    const res = await axios.get(`/user/${id}`);
+    const res = await axios.get( url + `/user/${id}`);
     const data = await res.data;
     setShowSingleItem(!showSingleItem);
     setSingleGearItem(data);
