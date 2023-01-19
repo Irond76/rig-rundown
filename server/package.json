@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build" : "npm build"
+    "build" : "npm run build"
   },
   "author": "Dale Bendixen",
   "license": "ISC",
