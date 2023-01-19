@@ -14,6 +14,8 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.API_SECRET,
 });
+
+
 app.use(cors({
     origin: '*',
     credentials: true
