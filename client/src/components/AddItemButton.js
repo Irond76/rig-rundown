@@ -8,7 +8,7 @@ const AddItemButton = () => {
     const navigate = useNavigate();
     const handleClick = (e) => {
         return (
-            navigate(url + '/add-gear') 
+            navigate('/add-gear') 
         )
     }
   return (

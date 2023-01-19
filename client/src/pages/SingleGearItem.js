@@ -1,5 +1,5 @@
 import '../styles/SingleGearItem.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 const SingleGearItem = (props) => {
     const {brand,color,type, details,image,model,year,serialNumber} = props.state;

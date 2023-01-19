@@ -43,16 +43,6 @@ const User = () => {
     const data = await res.data;
     setItemToEdit(data)
     setEdit(!edit)
-
-
-    
-
-    // const res = await axios.patch(`/user/${id}`);
-    // const data = await res.data;
-    // setEditGearInfo(data)
-    // console.log(editGearInfo)
-    // setMyGear([...myGear]);
-    // setEdit(false);
   }
 
 
