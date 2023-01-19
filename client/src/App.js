@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import User from './pages/User';
 import AddGear from './pages/AddGear';
 
-
 function App() {
   return (
     <div className="App">
