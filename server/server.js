@@ -6,7 +6,7 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const DB = process.env.MONGO_DB_URI;
 const mongoose = require('mongoose');
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 mongoose.set('strictQuery', false);
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({
