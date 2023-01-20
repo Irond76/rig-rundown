@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a4023efe.css",
+    "main.js": "/static/js/main.f8baf172.js",
+    "static/media/spinner-logo.png": "/static/media/spinner-logo.736830255e46e26ddb09.png",
+    "index.html": "/index.html",
+    "main.a4023efe.css.map": "/static/css/main.a4023efe.css.map",
+    "main.f8baf172.js.map": "/static/js/main.f8baf172.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4023efe.css",
+    "static/js/main.f8baf172.js"
+  ]
+}
