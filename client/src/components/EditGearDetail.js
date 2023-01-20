@@ -18,7 +18,7 @@ const EditGearDetail = (props) => {
     const navigate = useNavigate();
     const url = 'https://rig-rundown.adaptable.app/';
     const updatePage = () => {
-        navigate(url + '/user');
+        navigate('/user');
         window.location.reload();
     }
     const previewImage =  () => {
