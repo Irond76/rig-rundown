@@ -19,7 +19,8 @@ const EditGearDetail = (props) => {
     const url = 'https://rig-rundown.adaptable.app/';
     const updatePage = () => {
         navigate('/user');
-        window.location.reload(true);
+        window.location.reload(true)
+        
     }
     const previewImage =  () => {
         const reader =  new FileReader();
@@ -73,7 +74,7 @@ const EditGearDetail = (props) => {
             const uploadedImageData = await uploadImage.data;
             const imageUrl = uploadedImageData.url;
             setImageUrl(imageUrl)
-            const res = await axios.patch(url + `/add-gear/${_id}`, {
+            const res = await axios.patch(url + `/user/${_id}`, {
                 brand,
                 model,
                 color,
@@ -83,7 +84,7 @@ const EditGearDetail = (props) => {
                 image: imageUrl,
                 details
             });
-            // const data = await res.data;
+            const data = await res.data;
             // console.log(data);
             setBrand('');
             setModel('');
