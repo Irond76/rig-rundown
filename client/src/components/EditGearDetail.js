@@ -69,7 +69,7 @@ const EditGearDetail = (props) => {
             const formData = new FormData();
             formData.append("file", image);
             formData.append("upload_preset", "rigrundown");
-            const uploadImage = await axios.post(url + "https://api.cloudinary.com/v1_1/rush-media/image/upload", formData);
+            const uploadImage = await axios.post("https://api.cloudinary.com/v1_1/rush-media/image/upload", formData);
             const uploadedImageData = await uploadImage.data;
             const imageUrl = uploadedImageData.url;
             setImageUrl(imageUrl)
