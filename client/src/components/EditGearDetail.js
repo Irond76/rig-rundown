@@ -73,7 +73,7 @@ const EditGearDetail = (props) => {
             const uploadedImageData = await uploadImage.data;
             const imageUrl = uploadedImageData.url;
             setImageUrl(imageUrl)
-            const res = await axios.patch(url + `/user/${_id}`, {
+            const res = await axios.patch(`/user/${_id}`, {
                 brand,
                 model,
                 color,
