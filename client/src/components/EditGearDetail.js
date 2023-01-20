@@ -20,7 +20,6 @@ const EditGearDetail = (props) => {
     const updatePage = () => {
         navigate('/user');
         window.location.reload(true)
-        
     }
     const previewImage =  () => {
         const reader =  new FileReader();
