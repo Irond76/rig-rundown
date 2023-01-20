@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './styles/App.css';
 import './styles/DarkModeButton.css';
-import './styles/User.css';
 import Title from './components/Title';
 import Login from './pages/Login';
 import Home from './pages/Home';
